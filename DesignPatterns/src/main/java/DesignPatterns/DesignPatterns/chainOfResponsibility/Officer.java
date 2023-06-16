@@ -12,9 +12,12 @@ public class Officer {
 		super();
 		this.salary = salary;
 		this.role = role;
+		
 	}
 	
 	 public void setSuperiorOfficer(Officer superiorOfficer) {
 	        this.superiorOfficer = superiorOfficer;
 	 }
+	 
+	 
 }

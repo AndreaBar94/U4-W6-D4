@@ -10,6 +10,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import DesignPatterns.DesignPatterns.adapter.Adapter;
 import DesignPatterns.DesignPatterns.adapter.Info;
 import DesignPatterns.DesignPatterns.adapter.UserData;
+import DesignPatterns.DesignPatterns.chainOfResponsibility.Officer;
+import DesignPatterns.DesignPatterns.chainOfResponsibility.Role;
 import DesignPatterns.DesignPatterns.composite.Book;
 import DesignPatterns.DesignPatterns.composite.Page;
 import DesignPatterns.DesignPatterns.composite.Section;
@@ -62,6 +64,23 @@ public class DesignPatternsApplication {
         // Ottenimento del numero totale di pagine del libro
         int totalPages = book.getPages();
         System.out.println("Total number of pages: " + totalPages);
+        
+        System.out.println("--------------------------CHAIN OF RESPONSIBILITY--------------------------");
+        
+        Officer captain = new Officer(1000, Role.CAPITANO);
+        Officer major = new Officer(2000, Role.MAGGIORE);
+        Officer liutenant = new Officer(3000, Role.TENENTE);
+        Officer colonel = new Officer(4000, Role.COLONNELLO);
+        Officer general = new Officer(5000, Role.GENERALE);
+        
+        captain.setSuperiorOfficer(major);
+        major.setSuperiorOfficer(liutenant);
+        liutenant.setSuperiorOfficer(colonel);
+        colonel.setSuperiorOfficer(general);
+        
+        int amountChecker = 2000;
+        
+        
 	}
 
 }
